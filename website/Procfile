@@ -1,1 +1,1 @@
-web: gunicorn cms : app
+web: gunicorn apl_name : cms
