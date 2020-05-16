@@ -1,1 +1,1 @@
-web: gunicorn apl_name : cms
+web: gunicorn apl_name : cms --log-file -
