@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{%load i18n %}
+
+
+{% block title %}{% if query %}{{ query }}{% endif %} | {{ block.super }}{% endblock %}
+
+{% block description %}{% trans "" %}{% trans "検索ワード" %}「{% if query %}{{ query }}{% endif %} {% trans "」での検索結果ページです。" %}{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <main class="col-md-8">
+      <h1 class="mb-4">「{% if query %}{{ query }}{% endif %} {% trans "」の検索結果" %}</h1>
+      <p class="text-right">{{ page_obj.start_index }}-{{ page_obj.end_index }}{% trans "件" %}（{{ paginator.count }}{% trans "件" %}）</p>
+      {% include "cms/snippets/main_post_list.html" %}
+      {% include "cms/snippets/pagination.html" %}
+    </main>
+    <aside class="col-md-4">
+      {% include "cms/snippets/sidebar.html" %}
+    </aside>
+  </div>
+</div>
+{% endblock %}

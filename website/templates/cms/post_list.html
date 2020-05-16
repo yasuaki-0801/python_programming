@@ -1,0 +1,28 @@
+<!--{% extends 'cms/templates/base.html' %}
+{% load humanize %}
+{% block meta_title %}記事一覧 - {{ block.super }}{% endblock %}-->
+{%load sttatic%}
+<link rel="stylesheet" href="{% static 'cms/style.css' %}"
+{%load i18n %}
+{% block content %}
+    <section>
+        {% for post in post_list %}
+            <article class="post">
+                <h2 class="post-title"><a href="#">{{ post.title }}</a></h2>
+                <p class="description">{{ post.description }}</p>
+                <div>
+                    <time class="updated_at"
+                          datetime="{{ post.updated_at | date:'Y-m-d' }}">{{ post.updated_at | naturaltime }}{% trans "に更新" %}
+                    </time>
+
+                    {% for tag in post.tags.all %}
+                        <span class="tag" data-pk="{{ tag.pk }}">{{ tag.name }}</span>
+                    {% endfor %}
+                </div>
+            </article>
+
+        {% empty %}
+            <p class="post">{% trans "まだ記事がありません。" %}</p>
+        {% endfor %}
+    </section>
+{% endblock %}

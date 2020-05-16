@@ -1,0 +1,6 @@
+<h1>カテゴリ一覧</h1>
+<ul>
+ {% for category  in object_list %}
+ <li><a href="{% url 'cms:category_post' category.slug %}">{{ category.name }} ({{ category.num_posts }})</a></li>
+ {% endfor %}
+</ul>

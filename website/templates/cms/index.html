@@ -1,0 +1,26 @@
+<!-- blog/index.html -->
+{% extends "base.html" %}
+{%load i18n %}
+{%load static%}
+
+<link rel="stylesheet" href="{% static 'cms/css/style.css' %}">
+<link rel="icon" href="{% static 'cms/img/favicon.ico' %}">
+
+
+{% block title %} {% trans "投稿一覧" %} {{ block.super }}{% endblock %}
+{% block description %}{% trans "マイブログです。毎日更新します。" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <main class="col-md-8">
+      <h3 class="mb-4"> {% trans "投稿一覧" %}</h3>
+      {% include "cms/snippets/main_post_list.html" %}
+      {% include "cms/snippets/pagination.html" %}
+    </main>
+    <aside class="col-md-4">
+      {% include "cms/snippets/sidebar.html" %}
+    </aside>
+  </div>
+</div>
+{% endblock %}

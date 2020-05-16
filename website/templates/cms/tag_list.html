@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-header">
+    タグ
+  </div>
+  <ul class="list-group list-group-flush">
+    {% for tag in tags|dictsortreversed:"num_posts"|slice:":5" %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="{% url 'cms:tag_post' tag.slug %}" class="card-link">{{ tag.name }}</a>
+      <span class="badge badge-primary badge-pill">{{ tag.num_posts }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
