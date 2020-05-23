@@ -22,6 +22,7 @@ from django.contrib.sitemaps.views import sitemap
 from .feeds import LatestPostsFeed
 from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
+from django.views.static import serve
 
 from .sitemaps import (
     BlogPostSitemap,
@@ -41,6 +42,7 @@ urlpatterns = i18n_patterns(
     path('pages/', include('django.contrib.flatpages.urls')),
     path('summernote/', include('django_summernote.urls')), 
     path('i18n/', include('django.conf.urls.i18n')),
+    #url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     prefix_default_language=False   
 )
 

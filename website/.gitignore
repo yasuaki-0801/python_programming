@@ -1,4 +1,4 @@
-<django-project-name>/settings/local.py
+website/settings/local.py
 staticfiles/
 
 ### Django ###
@@ -61,7 +61,7 @@ coverage.xml
 .pytest_cache/
 
 # Translations
-*.mo
+#*.mo
 
 # Django stuff:
 

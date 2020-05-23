@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{%load i18n %}
+{%load static%}
+
+{% block title %} {% trans "本サイトについて" %} {{ block.super }}{% endblock %}
+{% block description %}{% trans "マイブログです。毎日更新します。" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+<h3>自己紹介</h3>
+<p>東京都出身 1991年生まれ。社内SEとして半導体メーカの情報システムグループに在籍</p>
+<p>趣味：スケートボード・語学</p>
+
+<p>From Tokyo, I'm working in charge of Information System group</p>
+<p>I like to play SkateBoard and learn Language/p>
+
+<h3>本サイトについて</h3>
+<p>本サイトはDjangoを利用して開発をしています</p>
+<p>This site is made by Django Framework</p>
+<ul>
+  <li>Backend Python</li>
+  <li>Framework Django</li>
+  <li>DB Sqllite</li>
+  <li>Frontend Bootstrap</li>
+</ul>
+</div>
+{% endblock %}

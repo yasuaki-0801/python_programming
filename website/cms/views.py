@@ -15,9 +15,14 @@ from django.views.generic.edit import FormView
 from django.utils.translation import gettext as _
 
 
+
 # Create your views here.
 def index_template(request):
     return render(request, 'index.html')
+
+def aboutme(request):
+    return render(request, 'cms/aboutme.html')
+    
 
 class PostDetailView(DetailView):
     """公開記事の一覧を表示する。"""
@@ -27,6 +32,8 @@ class PostDetailView(DetailView):
         if not obj.is_public and not self.request.user.is_authenticated:
             raise Http404
         return obj
+
+
 
 class IndexView(ListView):
 
@@ -179,3 +186,4 @@ class ContactResultView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['success'] = _("お問い合わせは正常に送信されました。")
         return context
+

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from django.utils.translation import ugettext_lazy as _
+
 import django_heroku
 
 # Activate Django-Heroku.
@@ -19,6 +20,7 @@ import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -44,7 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'django.contrib.sitemaps',
     'django_summernote',
+    'storages',
     'cms',
+
 ]
 
 MIDDLEWARE = [
@@ -58,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'website.urls'
@@ -151,3 +156,5 @@ EMAIL_USE_TLS = True
 SITE_ID = 1
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_heroku.settings(locals())
+
+from website.aws.conf import *

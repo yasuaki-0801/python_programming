@@ -9,20 +9,20 @@
 </script>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-  <a class="navbar-brand" href="/">MyBlog</a>
+  <a class="navbar-brand" href="{% url 'cms:index' %}">Yasu's Site</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'cms:index' %}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/about">About me <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'cms:aboutme' %}">About me <span class="sr-only">(current)</span></a>
       </li>
        <li class="nav-item active">
-        <a class="nav-link" href="/contact/">Contact</a>
+        <a class="nav-link" href="{% url 'cms:contact_form' %}">Contact</a>
       </li>
       
       <form name="ui" action="{% url 'set_language' %}" method="post">{% csrf_token %}
@@ -50,8 +50,10 @@
     
     <div>
     <form class="form-inline my-2 my-lg-0" action="{% url 'cms:search_post' %}" method="GET" >
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="earch" name="q" value="{{ request.GET.q }}" >
-      <button class="btn  btn-light">Search</button>
+    <div class="col-xs-1">
+      <input class="mr-sm-2 form-control input-sm" placeholder="Search" aria-label="earch" name="q" value="{{ request.GET.q }}" >
+      </div>
+      <button class="btn  btn-light ">Search</button>
     </form> 
   </div>
 </nav>

@@ -19,5 +19,6 @@ urlpatterns = [
     path('reply/<int:pk>/remove/', reply_remove, name='reply_remove'),
     path('contact/', ContactFormView.as_view(), name='contact_form'),
     path('contact/result/', ContactResultView.as_view(), name='contact_result'),
+    path('aboutme/', views.aboutme, name='aboutme'),
     
 ]
