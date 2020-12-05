@@ -1,12 +1,5 @@
 <!-- templates/base/navbar.html -->
 {%load i18n %}
-<script>
-  function Search() {
-  //var txt = document.getElementById("get_para");'
-  var param = document.getElementById('keyword').value
-  location.href = "/search?q="+param;
-}
-</script>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
   <a class="navbar-brand" href="{% url 'cms:index' %}">Yasu's Site</a>

@@ -20,5 +20,7 @@ urlpatterns = [
     path('contact/', ContactFormView.as_view(), name='contact_form'),
     path('contact/result/', ContactResultView.as_view(), name='contact_result'),
     path('aboutme/', views.aboutme, name='aboutme'),
+    path('gs_sitemap/', views.gs_sitemap, name='gs_sitemap'),
+    
     
 ]

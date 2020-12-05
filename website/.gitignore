@@ -1,4 +1,4 @@
-website/settings/local.py
+#website/settings/local.py
 staticfiles/
 
 ### Django ###

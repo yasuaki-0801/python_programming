@@ -22,6 +22,9 @@ def index_template(request):
 
 def aboutme(request):
     return render(request, 'cms/aboutme.html')
+
+def gs_sitemap(request):
+    return redirect('https://werbsite.s3-ap-northeast-1.amazonaws.com/sitemap/sitemap.xml')
     
 
 class PostDetailView(DetailView):
@@ -40,6 +43,9 @@ class IndexView(ListView):
     model = Post
     template_name = 'cms/index.html'
     paginate_by = 3
+
+    def get_queryset(self):
+        return Post.objects.order_by('published_at').reverse()
 
 
 class TagListView(ListView):

@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from django.utils.translation import ugettext_lazy as _
-
 import django_heroku
 
 # Activate Django-Heroku.
@@ -47,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django_summernote',
     'storages',
+    #'robots_txt',
     'cms',
 
 ]
@@ -81,6 +81,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'website.context_processors.common',
+                'website.context_processors.google_analytics',    
             ],
         },
     },
@@ -157,4 +158,5 @@ SITE_ID = 1
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_heroku.settings(locals())
 
+GOOGLE_ANALYTICS_TRACKING_ID = 'UA-120543748-1'
 from website.aws.conf import *
