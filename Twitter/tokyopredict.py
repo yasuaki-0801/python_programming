@@ -10,7 +10,7 @@ file_name = r'\temp\csv\japan.csv'
 csvurl ="https://www.mhlw.go.jp/content/pcr_positive_daily.csv"
 req_methods = urllib3.PoolManager()
 
-#URLから最新の陽性者データをダウンロードする
+#URLから最新の陽性者データをダウンロードし保存
 res = req_methods.request("GET",csvurl)
 with open(file_name,'wb') as f:
     f.write(res.data)
@@ -26,7 +26,7 @@ coronamax = sm.tsa.SARIMAX(corona_amount, order=(2,1,3),
                           enforce_stationarity=False,
                           enforce_invertibility=False).fit()
 
-#予想する
+#今後の30日間予想する
 prediction = coronamax.forecast(30)
 #グラフを描写
 plt.figure(figsize=(10,5))

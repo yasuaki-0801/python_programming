@@ -6,9 +6,9 @@ import os
 
 def post_tweet(language):
     if language == "ja":
-       RSS_URL = "https://yasu-investing.com/feed/"
+       RSS_URL = ""
     else:
-       RSS_URL = "https://yasu-investing.com/en/feed/"
+       RSS_URL = ""
     wordpress = feedparser.parse(RSS_URL)
     auth = twitter.OAuth(consumer_key=os.environ['tw_consumer_key'],
                      consumer_secret=os.environ['tw_consumer_secret'],
